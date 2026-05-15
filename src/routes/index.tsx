@@ -1,26 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/sections/Hero";
+import { TrustedBy } from "@/components/sections/TrustedBy";
+import { Gallery } from "@/components/sections/Gallery";
+import { ServicesPreview } from "@/components/sections/ServicesPreview";
+import { FounderVision } from "@/components/sections/FounderVision";
+import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Healthcast — Healthcare Technology & Digital Innovation" },
+      { name: "description", content: "Healthcast is a B2B healthcare-tech partner delivering IT, SaaS, and digital marketing solutions for hospitals, clinics, doctors and conferences." },
+      { property: "og:title", content: "Healthcast — Empowering Healthcare Through Technology" },
+      { property: "og:description", content: "IT, marketing and digital transformation built for the realities of modern healthcare." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <>
+      <Hero />
+      <TrustedBy />
+      <Gallery />
+      <ServicesPreview />
+      <FounderVision />
+      <FinalCTA />
+    </>
+  );
 }
